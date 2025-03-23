@@ -22,6 +22,11 @@ public:
     bool operator==(const Matrix& other) const;
     bool operator!=(const Matrix& other) const;
 
+	bool operator<(const Matrix& other) const;
+	bool operator>(const Matrix& other) const;
+	bool operator<=(const Matrix& other) const;
+	bool operator>=(const Matrix& other) const;
+
     T GetElement(size_t row, size_t col) const;
     size_t GetRowsCount() const;
     size_t GetColsCount() const;
@@ -239,7 +244,29 @@ bool Matrix<T>::operator!=(const Matrix& other) const
 {
     return !(*this == other);
 }
+template <typename T>
+bool Matrix<T>::operator<(const Matrix& other) const 
+{
+    return data_[0][0] < other.data_[0][0];
+}
 
+template <typename T>
+bool Matrix<T>::operator>(const Matrix& other) const 
+{
+    return data_[0][0] > other.data_[0][0];
+}
+
+template <typename T>
+bool Matrix<T>::operator<=(const Matrix& other) const 
+{
+    return data_[0][0] <= other.data_[0][0];
+}
+
+template <typename T>
+bool Matrix<T>::operator>=(const Matrix& other) const 
+{
+    return data_[0][0] >= other.data_[0][0];
+}
 template <typename T>
 T Matrix<T>::GetElement(size_t row, size_t col) const 
 {
