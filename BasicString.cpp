@@ -90,6 +90,26 @@ public:
 		return cap;
 	}
 
+	void append(const T* str)
+	{
+		size_t addLen = std::strlen(str);
+		resize(len + addLen + 1);
+		std::memcpy(data + len, str, addLen + 1);
+		len += addLen;
+	}
+
+	int find(const T* str) const
+	{
+		size_t strLen = std::strlen(str);
+		if (strLen > len) return -1;
+
+		for (size_t i = 0; i <= len - strLen; ++i)
+		{
+			if (std::memcmp(data + i, str, strLen) == 0)
+				return static_cast<int>(i);
+		}
+		return -1;
+	}
 /* 	void append(const T* str)
 	{
 		size_t addLen = std::strlen(str);
