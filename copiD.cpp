@@ -1,35 +1,34 @@
 #include <iostream>
 
-class MyClass 
+class Class 
 {
 public:
-    MyClass() = default;
+    Class() = default;
 
     //забороняємо копіювання
-    MyClass(const MyClass&) = delete;
-    MyClass& operator=(const MyClass&) = delete;
+    Class(const Class&) = delete;
+    Class& operator=(const Class&) = delete;
 
     //забороняємо переміщення
-    MyClass(MyClass&&) = delete;
-    MyClass& operator=(MyClass&&) = delete;
+    Class(Class&&) = delete;
+    Class& operator=(Class&&) = delete;
 };
 
 int main() 
 {
-    MyClass a; // Створюємо об'єкт a
-
+    Class a;
     //копіювання
-    // MyClass b = a;  //копіювання заборонено
+    // Class b = a;  //копіювання заборонено
 
     //присвоєння копіювання
-    // MyClass c;
+    // Class c;
     // c = a;  //присвоєння копіювання заборонено
 
     //переміщення
-    // MyClass d = std::move(a);  //переміщення заборонено
+    // Class d = std::move(a);  //переміщення заборонено
 
     //присвоєння переміщення
-    // MyClass e;
+    // Class e;
     // e = std::move(a);  //присвоєння переміщення заборонено
 
     std::cout << "Testing is completed without compilation errors.\n";
